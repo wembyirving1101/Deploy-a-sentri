@@ -410,7 +410,10 @@ export default function Home() {
             onSelectTask={handleSelectTask}
           />
           <button
-            onClick={() => setShowDispatchQueue(true)}
+            onClick={() => {
+              setShowDispatchQueue(true)
+              setGameState(prev => ({ ...prev, currentTaskType: null }))
+            }}
             className={`py-2 px-3 rounded font-medium text-sm transition-colors uppercase tracking-wider flex-shrink-0 ${
               showDispatchQueue
                 ? 'bg-success text-success-foreground hover:opacity-90'

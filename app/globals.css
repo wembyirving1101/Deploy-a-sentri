@@ -77,7 +77,7 @@ body {
   --success-foreground: #ffffff;
   --destructive: #c97373;
   --border: #3a3a3a;
-  --input: #2a2a2a;
+  --input: #171b1d;
   --ring: #d4c5a9;
   /* Status colors matching the design */
   --color-high: #c97373;
@@ -85,20 +85,9 @@ body {
   --color-low: #7a9d6d;
   --color-public: #8db7d4;
   --color-internal: #8db7d4;
-  --color-confidential: #d4c5a9;
-  --color-restricted: #c97373;
-  --chart-1: #d4c5a9;
-  --chart-2: #7a9d6d;
-  --chart-3: #c97373;
-  --chart-4: #8db7d4;
-  --chart-5: #a8a896;
-  --radius: 0.25rem;
-  --sidebar: #2a2a2a;
-  --sidebar-foreground: #c5b8a8;
-  --sidebar-primary: #d4c5a9;
-  --sidebar-primary-foreground: #2a2a2a;
-  --sidebar-accent: #d4c5a9;
-  --sidebar-accent-foreground: #2a2a2a;
+  --sidebar: #171b1d;
+  --sidebar-primary-foreground: #171b1d;
+  --sidebar-accent-foreground: #171b1d;
   --sidebar-border: #4a4a4a;
   --sidebar-ring: #d4c5a9;
 }

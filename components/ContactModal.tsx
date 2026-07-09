@@ -93,7 +93,7 @@ export default function ContactModal({ contacts, onClose }: ContactModalProps) {
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-40 backdrop-blur-sm">
       <div className="bg-[#1a1a1a] border-2 border-[#444] rounded-lg w-11/12 max-w-4xl h-3/4 flex flex-col overflow-hidden">
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#2a2a2a] to-[#1f1f1f] border-b border-[#444] px-6 py-4 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-[#171b1d] to-[#1f1f1f] border-b border-[#444] px-6 py-4 flex items-center justify-between">
           <h1 className="text-xl font-bold text-muted-foreground tracking-wider uppercase">
             Contact
           </h1>
@@ -122,7 +122,7 @@ export default function ContactModal({ contacts, onClose }: ContactModalProps) {
                   className={`w-full flex items-center gap-3 p-3 rounded transition-colors text-left ${
                     selectedContactId === contact.id
                       ? 'bg-[#4a4a4a] border border-primary'
-                      : 'bg-[#2a2a2a] border border-[#444] hover:bg-[#333]'
+                      : 'bg-[#171b1d] border border-[#444] hover:bg-[#333]'
                   }`}
                 >
                   <span className="text-xl">{getIconForContact(contact.id)}</span>
@@ -140,7 +140,7 @@ export default function ContactModal({ contacts, onClose }: ContactModalProps) {
           </div>
 
           {/* Right Panel - Chat Interface */}
-          <div className="w-2/3 bg-[#2a2a2a] flex flex-col overflow-hidden">
+          <div className="w-2/3 bg-[#171b1d] flex flex-col overflow-hidden">
             {selectedContact ? (
               <>
                 {/* Contact Header */}
@@ -224,7 +224,7 @@ export default function ContactModal({ contacts, onClose }: ContactModalProps) {
         <div className="border-t border-[#444] bg-[#1a1a1a] p-4">
           <button
             onClick={onClose}
-            className="w-full py-3 rounded font-bold text-sm uppercase tracking-wide text-muted-foreground border border-[#444] hover:bg-[#2a2a2a] transition-colors"
+            className="w-full py-3 rounded font-bold text-sm uppercase tracking-wide text-muted-foreground border border-[#444] hover:bg-[#171b1d] transition-colors"
           >
             Close
           </button>

@@ -17,7 +17,7 @@ export default function DeskUI({ progressPercentage, onEndDay, tasksCompleted = 
   return (
     <>
       {/* Persistent Desk UI */}
-      <div className="fixed bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#2a2a2a] to-[#1f1f1f] border-t border-[#444444] px-6 py-4 flex items-end justify-between gap-6">
+      <div className="fixed bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#171b1d] to-[#1f1f1f] border-t border-[#444444] px-6 py-4 flex items-end justify-between gap-6">
         {/* Left: Employee Handbook */}
         <div className="flex gap-4">
           {/* Handbook */}
@@ -43,7 +43,7 @@ export default function DeskUI({ progressPercentage, onEndDay, tasksCompleted = 
           </button>
 
           {/* Company Password Policy Card */}
-          <div className="w-56 h-28 bg-[#2a2a2a] border border-[#444444] rounded-sm p-3 shadow-lg flex flex-col justify-between overflow-hidden">
+          <div className="w-56 h-28 bg-[#171b1d] border border-[#444444] rounded-sm p-3 shadow-lg flex flex-col justify-between overflow-hidden">
             <div>
               <div className="text-[10px] font-bold text-primary uppercase tracking-wider mb-2 ui-font">
                 Company Password Policy
@@ -103,7 +103,7 @@ export default function DeskUI({ progressPercentage, onEndDay, tasksCompleted = 
           {/* End Day Button */}
           <button 
             onClick={onEndDay}
-            className="flex flex-col items-center gap-2 px-6 py-2 bg-gradient-to-b from-[#c9a96e] to-[#b8956e] text-[#2a2a2a] rounded hover:from-[#d4b896] hover:to-[#c9a96e] transition-all font-bold shadow-lg hover:shadow-xl border border-[#8b7355]"
+            className="flex flex-col items-center gap-2 px-6 py-2 bg-gradient-to-b from-[#c9a96e] to-[#b8956e] text-[#171b1d] rounded hover:from-[#d4b896] hover:to-[#c9a96e] transition-all font-bold shadow-lg hover:shadow-xl border border-[#8b7355]"
           >
             <LogOut className="w-5 h-5" />
             <span className="text-[10px] ui-font uppercase tracking-wider">End Day</span>

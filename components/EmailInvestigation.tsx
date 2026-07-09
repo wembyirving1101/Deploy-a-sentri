@@ -46,13 +46,13 @@ export default function EmailInvestigation({
       </div>
 
       {/* Content Area - Inbox and Viewer Side by Side */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Inbox Section */}
-        <div className="w-80 border-r border-border flex flex-col overflow-hidden">
-          <div className="border-b border-border bg-secondary px-4 py-2 text-xs font-medium text-muted-foreground">
+      <div className="flex-1 flex overflow-hidden bg-[#171b1d]">
+        {/* Inbox Section - Card Layer */}
+        <div className="w-80 flex flex-col overflow-hidden bg-[#171b1d] p-3 gap-3">
+          <div className="bg-[#282c2f] rounded border border-[#3a3f42] px-3 py-2 text-xs font-medium text-muted-foreground">
             <span className="uppercase">Inbox ({emails.length})</span>
           </div>
-          <div className="flex-1 overflow-y-auto divide-y divide-border">
+          <div className="flex-1 overflow-y-auto space-y-2">
             {emails.map((email) => {
               const isSelected = selectedEmailId === email.id
 
@@ -60,23 +60,25 @@ export default function EmailInvestigation({
                 <button
                   key={email.id}
                   onClick={() => onSelectEmail(email.id)}
-                  className={`w-full text-left px-4 py-3 transition-colors hover:bg-secondary ${
-                    isSelected ? 'bg-secondary border-l-4 border-l-accent' : 'border-l-4 border-l-transparent'
+                  className={`w-full text-left px-3 py-3 rounded border transition-colors ${
+                    isSelected
+                      ? 'bg-success text-success-foreground border-success'
+                      : 'bg-[#d3cdc1] text-[#000000] border-[#c5b8a8] hover:bg-[#cbc0b5]'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2">
                     {/* Email Info */}
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground truncate">
+                      <p className="text-sm font-medium truncate">
                         {email.from}
                       </p>
-                      <p className="text-xs text-muted-foreground truncate">
+                      <p className="text-xs opacity-70 truncate">
                         {email.subject}
                       </p>
                     </div>
 
                     {/* Timestamp */}
-                    <p className="text-xs text-muted-foreground flex-shrink-0">
+                    <p className="text-xs opacity-70 flex-shrink-0">
                       {email.timestamp}
                     </p>
                   </div>
@@ -86,7 +88,7 @@ export default function EmailInvestigation({
           </div>
         </div>
 
-        {/* Email Viewer Section */}
+        {/* Email Viewer Section - Panel Layer */}
         {currentEmail ? (
           <EmailViewer
             email={currentEmail}
@@ -95,8 +97,8 @@ export default function EmailInvestigation({
             isEmbedded={true}
           />
         ) : (
-          <div className="flex-1 bg-background flex items-center justify-center">
-            <p className="text-muted-foreground">Select an email to view</p>
+          <div className="flex-1 bg-[#d3cdc1] flex items-center justify-center">
+            <p className="text-[#000000]">Select an email to view</p>
           </div>
         )}
       </div>

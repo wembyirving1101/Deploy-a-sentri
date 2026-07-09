@@ -53,7 +53,11 @@ export default function EmailViewer({
   const avatarColor = getAvatarColor(email.from)
 
   return (
-    <div className={`flex-1 bg-card ${!isEmbedded ? 'border border-border rounded' : 'border-l border-border'} flex flex-col overflow-hidden`}>
+    <div className={`flex-1 flex flex-col overflow-hidden ${
+      isEmbedded 
+        ? 'bg-[#d3cdc1] text-[#000000]' 
+        : 'bg-card border border-border rounded'
+    }`}>
       {/* Header - Only show when not embedded */}
       {!isEmbedded && (
         <>
@@ -90,14 +94,14 @@ export default function EmailViewer({
 
       {/* Email Content - No Cards Design */}
       <div className="flex-1 overflow-y-auto">
-        <div className="bg-background">
+        <div className={isEmbedded ? 'bg-[#d3cdc1]' : 'bg-background'}>
           {/* Subject Title */}
-          <div className="border-b border-border bg-card px-6 py-4">
-            <h1 className="text-xl font-bold text-foreground">{email.subject}</h1>
+          <div className={`border-b px-6 py-4 ${isEmbedded ? 'border-[#c5b8a8] bg-[#d3cdc1]' : 'border-border bg-card'}`}>
+            <h1 className={`text-xl font-bold ${isEmbedded ? 'text-[#000000]' : 'text-foreground'}`}>{email.subject}</h1>
           </div>
 
           {/* Sender Profile Section */}
-          <div className="border-b border-border bg-card px-6 py-5 flex items-start justify-between">
+          <div className={`border-b px-6 py-5 flex items-start justify-between ${isEmbedded ? 'border-[#c5b8a8] bg-[#d3cdc1]' : 'border-border bg-card'}`}>
             <div className="flex items-start gap-4">
               {/* Avatar */}
               <div
@@ -109,36 +113,40 @@ export default function EmailViewer({
 
               {/* Sender Info */}
               <div className="flex-1 min-w-0">
-                <p className="font-bold text-foreground text-sm">{email.from}</p>
-                <p className="text-xs text-muted-foreground">{email.senderDomain}</p>
-                <p className="text-xs text-muted-foreground">to: {email.to}</p>
+                <p className={`font-bold text-sm ${isEmbedded ? 'text-[#000000]' : 'text-foreground'}`}>{email.from}</p>
+                <p className={`text-xs ${isEmbedded ? 'text-[#000000] opacity-70' : 'text-muted-foreground'}`}>{email.senderDomain}</p>
+                <p className={`text-xs ${isEmbedded ? 'text-[#000000] opacity-70' : 'text-muted-foreground'}`}>to: {email.to}</p>
               </div>
             </div>
 
             {/* Timestamp */}
-            <span className="text-xs font-mono text-muted-foreground flex-shrink-0 ml-4">
+            <span className={`text-xs font-mono flex-shrink-0 ml-4 ${isEmbedded ? 'text-[#000000] opacity-70' : 'text-muted-foreground'}`}>
               {email.timestamp}
             </span>
           </div>
 
           {/* Email Body Content */}
-          <div className="px-6 py-6 text-foreground text-sm leading-relaxed whitespace-pre-wrap">
+          <div className={`px-6 py-6 text-sm leading-relaxed whitespace-pre-wrap ${isEmbedded ? 'text-[#000000]' : 'text-foreground'}`}>
             {email.body}
           </div>
 
           {/* Attachments */}
           {email.attachments.length > 0 && (
-            <div className="border-t border-border px-6 py-6">
+            <div className={`border-t px-6 py-6 ${isEmbedded ? 'border-[#c5b8a8]' : 'border-border'}`}>
               <div className="space-y-3">
                 {email.attachments.map((attachment, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-3 p-3 border border-border rounded hover:bg-secondary cursor-pointer transition-colors"
+                    className={`flex items-center gap-3 p-3 rounded cursor-pointer transition-colors ${
+                      isEmbedded
+                        ? 'border border-[#c5b8a8] bg-[#d3cdc1] hover:bg-[#cbc0b5] text-[#000000]'
+                        : 'border border-border bg-secondary hover:bg-opacity-75 text-foreground'
+                    }`}
                   >
-                    <FileText size={20} className="text-muted-foreground flex-shrink-0" />
+                    <FileText size={20} className={isEmbedded ? 'text-[#000000] opacity-70 flex-shrink-0' : 'text-muted-foreground flex-shrink-0'} />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground">{attachment.name}</p>
-                      <p className="text-xs text-muted-foreground">{attachment.size} KB</p>
+                      <p className={`text-sm font-medium ${isEmbedded ? 'text-[#000000]' : 'text-foreground'}`}>{attachment.name}</p>
+                      <p className={`text-xs ${isEmbedded ? 'text-[#000000] opacity-70' : 'text-muted-foreground'}`}>{attachment.size} KB</p>
                     </div>
                   </div>
                 ))}
@@ -149,8 +157,8 @@ export default function EmailViewer({
       </div>
 
       {/* Investigation Buttons */}
-      <div className="border-t border-border bg-secondary px-4 py-3">
-        <p className="text-xs font-bold text-muted-foreground uppercase mb-2">
+      <div className={`border-t px-4 py-3 ${isEmbedded ? 'bg-[#d3cdc1] border-[#c5b8a8]' : 'bg-secondary border-border'}`}>
+        <p className={`text-xs font-bold uppercase mb-2 ${isEmbedded ? 'text-[#000000] opacity-70' : 'text-muted-foreground'}`}>
           Investigate
         </p>
         <div className="grid grid-cols-3 gap-2">

@@ -1,5 +1,6 @@
 import { DataClassification } from '@/lib/types'
 import { FileText, Lock, Building2, Globe } from 'lucide-react'
+import Panel from './Panel'
 
 interface DataClassificationDetailsPanelProps {
   document: DataClassification
@@ -48,7 +49,7 @@ export default function DataClassificationDetailsPanel({
   return (
     <div className="flex flex-col gap-4 h-full overflow-y-auto">
       {/* Task Details */}
-      <div className="bg-card border border-border rounded p-4">
+      <Panel className="p-4">
         <div className="flex items-center gap-2 mb-4">
           <FileText size={20} className="text-accent" />
           <span className="text-muted-foreground uppercase text-xs font-bold">TASK DETAILS</span>
@@ -73,7 +74,7 @@ export default function DataClassificationDetailsPanel({
             </div>
           )}
         </div>
-      </div>
+      </Panel>
 
       {/* Classification Options */}
       <div className="flex flex-col gap-3 flex-1">

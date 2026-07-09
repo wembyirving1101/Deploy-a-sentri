@@ -40,6 +40,8 @@ body {
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-panel-foreground: var(--panel-foreground);
+  --color-panel: var(--panel);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
   --radius-sm: calc(var(--radius) * 0.6);
@@ -57,6 +59,8 @@ body {
   --foreground: #c5b8a8;
   --card: #3a3a3a;
   --card-foreground: #c5b8a8;
+  --panel: #c5b5a0;
+  --panel-foreground: #3a3a3a;
   --popover: #3a3a3a;
   --popover-foreground: #c5b8a8;
   --primary: #d4c5a9;

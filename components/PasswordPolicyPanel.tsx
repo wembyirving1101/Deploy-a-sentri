@@ -1,8 +1,9 @@
 import { AlertCircle } from 'lucide-react'
+import Panel from './Panel'
 
 export default function PasswordPolicyPanel() {
   return (
-    <div className="bg-card border border-border rounded p-4 flex-1 overflow-y-auto h-full">
+    <Panel className="p-4 flex-1 overflow-y-auto h-full">
       <div className="flex items-center gap-2 mb-4">
         <AlertCircle size={20} className="text-accent" />
         <span className="text-muted-foreground uppercase text-xs font-bold">PASSWORD POLICY</span>
@@ -79,6 +80,6 @@ export default function PasswordPolicyPanel() {
           </div>
         </div>
       </div>
-    </div>
+    </Panel>
   )
 }

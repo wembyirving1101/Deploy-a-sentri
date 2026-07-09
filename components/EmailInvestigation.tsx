@@ -3,6 +3,7 @@
 import { ChevronLeft, ChevronRight, MoreVertical } from 'lucide-react'
 import EmailInbox from './EmailInbox'
 import EmailViewer from './EmailViewer'
+import Panel from './Panel'
 import { Email } from '@/lib/types'
 
 interface EmailInvestigationProps {
@@ -23,7 +24,7 @@ export default function EmailInvestigation({
   investigatedCategories,
 }: EmailInvestigationProps) {
   return (
-    <div className="flex-1 bg-card border border-border rounded flex flex-col overflow-hidden h-full">
+    <Panel className="flex-1 h-full">
       {/* Header */}
       <div className="border-b border-border px-4 py-3 flex items-center justify-between">
         <div className="flex-1">
@@ -99,6 +100,6 @@ export default function EmailInvestigation({
           </div>
         )}
       </div>
-    </div>
+    </Panel>
   )
 }

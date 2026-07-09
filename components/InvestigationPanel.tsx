@@ -1,4 +1,5 @@
 import { AlertTriangle } from 'lucide-react'
+import Panel from './Panel'
 import { InvestigationCategory } from '@/lib/types'
 
 interface InvestigationPanelProps {
@@ -17,7 +18,7 @@ export default function InvestigationPanel({
   const checkedCount = investigationList.filter((item) => item.checked).length
 
   return (
-    <div className="bg-card border border-border rounded w-80 flex flex-col overflow-hidden">
+    <Panel className="w-80">
       <div className="border-b border-border px-4 py-3">
         <div className="flex items-center gap-2 mb-1">
           <AlertTriangle size={16} className="text-destructive" />
@@ -83,6 +84,6 @@ export default function InvestigationPanel({
           Make a Decision
         </button>
       </div>
-    </div>
+    </Panel>
   )
 }

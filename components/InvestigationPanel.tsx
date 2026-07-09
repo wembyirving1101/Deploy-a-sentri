@@ -1,4 +1,4 @@
-import { AlertTriangle } from 'lucide-react'
+import { AlertTriangle, User, Link2, FileText, MessageCircle, Share2 } from 'lucide-react'
 import { InvestigationCategory } from '@/lib/types'
 
 interface InvestigationPanelProps {
@@ -35,30 +35,43 @@ export default function InvestigationPanel({
       <div className="flex-1 flex flex-col overflow-hidden bg-[#d3cdc1] m-3 rounded">
         {/* Investigation items container - no gaps */}
         <div className="flex-1 overflow-y-auto">
-          {investigationList.map((item, index) => (
-            <div
-              key={item.id}
-              className={`bg-[#d3cdc1] p-4 flex items-start justify-between gap-3 ${index !== investigationList.length - 1 ? 'border-b-2 border-[#c5b8a8]' : ''}`}
-            >
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-[#000000]">{item.label}</p>
-                {item.hasEvidence && (
-                  <p className="text-xs text-[#000000]">Evidence collected</p>
-                )}
-                <button className="mt-2 py-1 px-3 rounded font-bold text-xs uppercase tracking-wide transition-colors bg-[#d3cdc1] text-[#000000] border border-[#a89a8a] hover:bg-[#cbc0b5]">
-                  Check
-                </button>
+          {investigationList.map((item, index) => {
+            const iconMap = {
+              profile: <User size={40} className="text-[#999] flex-shrink-0" strokeWidth={1.5} />,
+              link: <Link2 size={40} className="text-[#999] flex-shrink-0" strokeWidth={1.5} />,
+              file: <FileText size={40} className="text-[#999] flex-shrink-0" strokeWidth={1.5} />,
+              language: <MessageCircle size={40} className="text-[#999] flex-shrink-0" strokeWidth={1.5} />,
+              context: <Share2 size={40} className="text-[#999] flex-shrink-0" strokeWidth={1.5} />,
+              request: <Share2 size={40} className="text-[#999] flex-shrink-0" strokeWidth={1.5} />,
+            }
+            
+            return (
+              <div
+                key={item.id}
+                className={`bg-[#d3cdc1] p-4 flex items-start justify-between gap-4 ${index !== investigationList.length - 1 ? 'border-b-2 border-[#c5b8a8]' : ''}`}
+              >
+                <div className="flex gap-4 flex-1 min-w-0">
+                  <div className="flex-shrink-0">
+                    {iconMap[item.id as keyof typeof iconMap]}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-base font-bold text-[#000000] mb-1">{item.label}</p>
+                    {item.hasEvidence && (
+                      <p className="text-xs text-[#000000]">Evidence collected</p>
+                    )}
+                  </div>
+                </div>
+                <div className="flex-shrink-0">
+                  <input
+                    type="checkbox"
+                    checked={item.checked}
+                    onChange={() => onCheckboxChange?.(item.id)}
+                    className="w-6 h-6 cursor-pointer bg-[#c1b5a8] border-2 border-[#a89a8a] rounded"
+                  />
+                </div>
               </div>
-              <div className="flex-shrink-0">
-                <input
-                  type="checkbox"
-                  checked={item.checked}
-                  onChange={() => onCheckboxChange?.(item.id)}
-                  className="w-5 h-5 cursor-pointer bg-[#c1b5a8] border-2 border-[#a89a8a]"
-                />
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {/* Contact People Button */}

@@ -17,6 +17,23 @@ export default function EmailViewer({
 }: EmailViewerProps) {
   const [showInvestigationPanel, setShowInvestigationPanel] = useState(true)
 
+  // Generate avatar color based on sender name
+  const getAvatarColor = (name: string): string => {
+    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F']
+    const hash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
+    return colors[hash % colors.length]
+  }
+
+  // Get initials from sender name
+  const getInitials = (name: string): string => {
+    return name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2)
+  }
+
   const investigationButtons = [
     { id: 'profile', label: 'PROFILE', icon: '👤' },
     { id: 'link', label: 'LINK', icon: '🔗' },
@@ -29,6 +46,9 @@ export default function EmailViewer({
   const handleInvestigate = (categoryId: string) => {
     onInvestigate(categoryId)
   }
+
+  const senderInitials = getInitials(email.from)
+  const avatarColor = getAvatarColor(email.from)
 
   return (
     <div className="flex-1 bg-card border border-border rounded flex flex-col overflow-hidden">
@@ -62,55 +82,56 @@ export default function EmailViewer({
         </button>
       </div>
 
-      {/* Email Content */}
+      {/* Email Content - No Cards Design */}
       <div className="flex-1 overflow-y-auto">
-        <div className="bg-background p-6">
-          {/* Email Header */}
-          <div className="bg-card border border-border rounded-lg p-4 mb-4">
-            <div className="flex items-start justify-between mb-3">
-              <div>
-                <h3 className="text-lg font-bold text-foreground">{email.subject}</h3>
-              </div>
-              <span className="text-xs font-mono text-muted-foreground">{email.timestamp}</span>
-            </div>
-
-            <div className="space-y-2 text-sm">
-              <div className="flex gap-2">
-                <span className="text-muted-foreground min-w-12">From:</span>
-                <div>
-                  <p className="font-medium text-foreground">{email.from}</p>
-                  <p className="text-xs text-muted-foreground">{email.senderDomain}</p>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <span className="text-muted-foreground min-w-12">To:</span>
-                <p className="font-medium text-foreground">{email.to}</p>
-              </div>
-            </div>
+        <div className="bg-background">
+          {/* Subject Title */}
+          <div className="border-b border-border bg-card px-6 py-4">
+            <h1 className="text-xl font-bold text-foreground">{email.subject}</h1>
           </div>
 
-          {/* Email Body */}
-          <div className="bg-card border border-border rounded-lg p-4 mb-4 whitespace-pre-wrap text-sm text-foreground leading-relaxed font-mono text-xs">
+          {/* Sender Profile Section */}
+          <div className="border-b border-border bg-card px-6 py-5 flex items-start justify-between">
+            <div className="flex items-start gap-4">
+              {/* Avatar */}
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+                style={{ backgroundColor: avatarColor }}
+              >
+                {senderInitials}
+              </div>
+
+              {/* Sender Info */}
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-foreground text-sm">{email.from}</p>
+                <p className="text-xs text-muted-foreground">{email.senderDomain}</p>
+                <p className="text-xs text-muted-foreground">to: {email.to}</p>
+              </div>
+            </div>
+
+            {/* Timestamp */}
+            <span className="text-xs font-mono text-muted-foreground flex-shrink-0 ml-4">
+              {email.timestamp}
+            </span>
+          </div>
+
+          {/* Email Body Content */}
+          <div className="px-6 py-6 text-foreground text-sm leading-relaxed whitespace-pre-wrap">
             {email.body}
           </div>
 
           {/* Attachments */}
           {email.attachments.length > 0 && (
-            <div className="bg-card border border-border rounded-lg p-4 mb-4">
-              <h4 className="text-xs font-bold text-muted-foreground uppercase mb-3">
-                Attachments
-              </h4>
-              <div className="space-y-2">
+            <div className="border-t border-border px-6 py-6">
+              <div className="space-y-3">
                 {email.attachments.map((attachment, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 p-2 bg-secondary rounded hover:bg-opacity-75 cursor-pointer transition-colors"
+                    className="flex items-center gap-3 p-3 border border-border rounded hover:bg-secondary cursor-pointer transition-colors"
                   >
-                    <FileText size={16} className="text-muted-foreground flex-shrink-0" />
+                    <FileText size={20} className="text-muted-foreground flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground truncate">
-                        {attachment.name}
-                      </p>
+                      <p className="text-sm font-medium text-foreground">{attachment.name}</p>
                       <p className="text-xs text-muted-foreground">{attachment.size} KB</p>
                     </div>
                   </div>

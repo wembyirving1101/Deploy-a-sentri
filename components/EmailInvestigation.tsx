@@ -1,9 +1,7 @@
 'use client'
 
-import { ChevronLeft, ChevronRight, MoreVertical } from 'lucide-react'
 import EmailInbox from './EmailInbox'
 import EmailViewer from './EmailViewer'
-import Panel from './Panel'
 import { Email } from '@/lib/types'
 
 interface EmailInvestigationProps {
@@ -24,28 +22,15 @@ export default function EmailInvestigation({
   investigatedCategories,
 }: EmailInvestigationProps) {
   return (
-    <Panel className="flex-1 h-full bg-[#d3cdc1]">
-      {/* Header */}
-      <div className="border-b border-[#c5b8a8] px-4 py-3 flex items-center justify-between bg-[#d3cdc1]">
-        <div className="flex-1">
-          <h2 className="text-xs font-bold tracking-widest text-[#000000] uppercase mb-1">
-            EMAIL INVESTIGATION
-          </h2>
-        </div>
-        <div className="flex items-center gap-2">
-          <button className="p-2 hover:bg-[#cbc0b5] rounded transition-colors">
-            <ChevronLeft size={18} className="text-[#000000]" />
-          </button>
-          <button className="p-2 hover:bg-[#cbc0b5] rounded transition-colors">
-            <ChevronRight size={18} className="text-[#000000]" />
-          </button>
-          <button className="p-2 hover:bg-[#cbc0b5] rounded transition-colors">
-            <MoreVertical size={18} className="text-[#000000]" />
-          </button>
-        </div>
+    <div className="flex-1 h-full bg-[#171b1d] border border-[#3a3f42] rounded flex flex-col overflow-hidden">
+      {/* Level 2 Header - Dark */}
+      <div className="bg-[#171b1d] border-b border-[#3a3f42] px-4 py-3">
+        <h2 className="text-xs font-bold tracking-widest text-muted-foreground uppercase">
+          EMAIL INVESTIGATION
+        </h2>
       </div>
 
-      {/* Content Area - Inbox and Viewer Side by Side */}
+      {/* Level 3 Content Area - Beige */}
       <div className="flex-1 flex overflow-hidden bg-[#d3cdc1]">
         {/* Inbox Section */}
         <div className="w-80 flex flex-col overflow-hidden bg-[#d3cdc1] border-r border-[#c5b8a8] p-3 gap-3">
@@ -102,6 +87,6 @@ export default function EmailInvestigation({
           </div>
         )}
       </div>
-    </Panel>
+    </div>
   )
 }

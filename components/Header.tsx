@@ -25,12 +25,12 @@ export default function Header({ currentTime, graduationProgress }: HeaderProps)
             <div className="flex-1">
               <div className="bg-secondary rounded h-6 overflow-hidden border border-border">
                 <div
-                  className="bg-accent h-full transition-all duration-300"
+                  className="bg-success h-full transition-all duration-300"
                   style={{ width: `${graduationProgress}%` }}
                 />
               </div>
             </div>
-            <span className="font-mono text-sm font-bold text-accent min-w-12">
+            <span className="font-mono text-sm font-bold text-success min-w-12">
               {graduationProgress}%
             </span>
           </div>

@@ -413,7 +413,7 @@ export default function Home() {
             onClick={() => setShowDispatchQueue(true)}
             className={`py-2 px-3 rounded font-medium text-sm transition-colors uppercase tracking-wider flex-shrink-0 ${
               showDispatchQueue
-                ? 'bg-accent text-accent-foreground hover:bg-opacity-90'
+                ? 'bg-success text-success-foreground hover:opacity-90'
                 : 'bg-secondary text-foreground hover:bg-opacity-75'
             }`}
           >

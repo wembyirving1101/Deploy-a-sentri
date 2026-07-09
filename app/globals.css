@@ -59,15 +59,15 @@ body {
   /* Retro-futuristic color scheme - Dark charcoal & warm beige */
   --background: #1a1a1a;
   --foreground: #c5b8a8;
-  --card: #2a2a2a;
+  --card: #191919;
   --card-foreground: #c5b8a8;
   --panel: #d0c5b0;
   --panel-foreground: #3a3a3a;
-  --popover: #2a2a2a;
+  --popover: #191919;
   --popover-foreground: #c5b8a8;
   --primary: #d4c5a9;
   --primary-foreground: #1a1a1a;
-  --secondary: #3a3a3a;
+  --secondary: #282828;
   --secondary-foreground: #c5b8a8;
   --muted: #6a6a6a;
   --muted-foreground: #8a8a8a;

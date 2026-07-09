@@ -41,8 +41,8 @@ export default function TasksPanel({ currentTaskType, onSelectTask }: TasksPanel
               onClick={() => onSelectTask(task.id as any)}
               className={`w-full flex items-center gap-2 px-3 py-2 rounded text-sm transition-colors ${
                 task.active
-                  ? 'bg-accent text-accent-foreground hover:bg-opacity-90'
-                  : 'bg-secondary text-foreground hover:bg-success hover:text-success-foreground'
+                  ? 'bg-success text-success-foreground hover:opacity-90'
+                  : 'bg-secondary text-foreground hover:bg-opacity-75'
               }`}
             >
               <Icon size={16} />

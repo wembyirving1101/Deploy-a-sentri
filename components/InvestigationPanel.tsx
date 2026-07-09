@@ -19,15 +19,15 @@ export default function InvestigationPanel({
   return (
     <div className="w-80 bg-[#171b1d] border border-[#3a3f42] rounded flex flex-col overflow-hidden">
       {/* Level 2 Header - Dark */}
-      <div className="bg-[#171b1d] border-b border-[#3a3f42] px-4 py-3">
-        <div className="flex items-center gap-2 mb-1">
+      <div className="bg-[#171b1d] border-b border-[#3a3f42] px-4 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
           <AlertTriangle size={16} className="text-destructive" />
           <h2 className="text-xs font-bold tracking-widest text-muted-foreground uppercase">
             INVESTIGATION LIST
           </h2>
         </div>
-        <p className="text-xs text-muted-foreground">
-          {checkedCount}/{investigationList.length} analyzed
+        <p className="text-xs text-muted-foreground font-bold">
+          {checkedCount}/{investigationList.length}
         </p>
       </div>
 
@@ -66,7 +66,11 @@ export default function InvestigationPanel({
                     type="checkbox"
                     checked={item.checked}
                     onChange={() => onCheckboxChange?.(item.id)}
-                    className="w-6 h-6 cursor-pointer bg-[#c1b5a8] border-2 border-[#a89a8a] rounded"
+                    className="w-6 h-6 cursor-pointer border-2 border-[#a89a8a] rounded"
+                    style={{
+                      backgroundColor: '#c1b5a8',
+                      accentColor: '#c1b5a8',
+                    }}
                   />
                 </div>
               </div>

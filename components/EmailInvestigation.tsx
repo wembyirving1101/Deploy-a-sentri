@@ -23,8 +23,8 @@ export default function EmailInvestigation({
 }: EmailInvestigationProps) {
   return (
     <div className="flex-1 h-full bg-[#171b1d] border border-[#3a3f42] rounded flex flex-col overflow-hidden">
-      {/* Level 2 Header - Dark */}
-      <div className="bg-[#171b1d] border-b border-[#3a3f42] px-4 py-3">
+      {/* Level 2 Header - Dark and Sticky */}
+      <div className="sticky top-0 bg-[#171b1d] border-b border-[#3a3f42] px-4 py-3 z-10">
         <h2 className="text-xs font-bold tracking-widest text-muted-foreground uppercase">
           EMAIL INVESTIGATION
         </h2>
@@ -47,7 +47,7 @@ export default function EmailInvestigation({
                   onClick={() => onSelectEmail(email.id)}
                   className={`w-full text-left px-3 py-3 rounded border transition-colors ${
                     isSelected
-                      ? 'bg-success text-success-foreground border-success'
+                      ? 'bg-success text-[#000000] border-success'
                       : 'bg-[#d3cdc1] text-[#000000] border-[#c5b8a8] hover:bg-[#cbc0b5] hover:text-[#000000]'
                   }`}
                 >

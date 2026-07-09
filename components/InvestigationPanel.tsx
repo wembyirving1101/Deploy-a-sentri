@@ -18,8 +18,8 @@ export default function InvestigationPanel({
 
   return (
     <div className="w-80 bg-[#171b1d] border border-[#3a3f42] rounded flex flex-col overflow-hidden">
-      {/* Level 2 Header - Dark */}
-      <div className="bg-[#171b1d] border-b border-[#3a3f42] px-4 py-3 flex items-center justify-between">
+      {/* Level 2 Header - Dark and Sticky */}
+      <div className="sticky top-0 bg-[#171b1d] border-b border-[#3a3f42] px-4 py-3 flex items-center justify-between z-10">
         <div className="flex items-center gap-2">
           <AlertTriangle size={16} className="text-destructive" />
           <h2 className="text-xs font-bold tracking-widest text-muted-foreground uppercase">

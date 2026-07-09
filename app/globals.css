@@ -74,7 +74,7 @@ body {
   --accent: #d4c5a9;
   --accent-foreground: #1a1a1a;
   --success: #4fb233;
-  --success-foreground: #ffffff;
+  --success-foreground: #000000;
   --destructive: #c97373;
   --border: #3a3a3a;
   --input: #171b1d;

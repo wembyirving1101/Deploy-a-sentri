@@ -13,8 +13,7 @@ import TasksPanel from '@/components/TasksPanel'
 import ProgressPanel from '@/components/ProgressPanel'
 import DispatchQueueView from '@/components/DispatchQueueView'
 import TaskDetailsPanel from '@/components/TaskDetailsPanel'
-import EmailInbox from '@/components/EmailInbox'
-import EmailViewer from '@/components/EmailViewer'
+import EmailInvestigation from '@/components/EmailInvestigation'
 import InvestigationPanel from '@/components/InvestigationPanel'
 import EmployeeHandbook from '@/components/EmployeeHandbook'
 import DecisionModal from '@/components/DecisionModal'
@@ -435,23 +434,14 @@ export default function Home() {
               onSelectQueue={setSelectedQueueItemId}
             />
           ) : gameState.currentTaskType === 'email' ? (
-            <div className="flex gap-4 h-full overflow-hidden">
-              {/* Email Inbox */}
-              <EmailInbox
-                emails={mockEmails.filter((e) => activeEmails.has(e.id))}
-                selectedEmailId={gameState.currentEmailId}
-                onSelectEmail={handleSelectEmail}
-              />
-
-              {/* Email Viewer */}
-              {currentEmail && (
-                <EmailViewer
-                  email={currentEmail}
-                  onInvestigate={handleInvestigate}
-                  investigatedCategories={gameState.investigatedCategories}
-                />
-              )}
-            </div>
+            <EmailInvestigation
+              emails={mockEmails.filter((e) => activeEmails.has(e.id))}
+              selectedEmailId={gameState.currentEmailId}
+              currentEmail={currentEmail}
+              onSelectEmail={handleSelectEmail}
+              onInvestigate={handleInvestigate}
+              investigatedCategories={gameState.investigatedCategories}
+            />
           ) : gameState.currentTaskType === 'password' ? (
             <PasswordStrengthTask
               password={mockPasswords.find((p) => p.id === gameState.currentPasswordId) || mockPasswords[0]}

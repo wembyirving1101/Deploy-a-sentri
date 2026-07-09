@@ -8,12 +8,14 @@ interface EmailViewerProps {
   email: Email
   onInvestigate: (categoryId: string) => void
   investigatedCategories: Set<string>
+  isEmbedded?: boolean
 }
 
 export default function EmailViewer({
   email,
   onInvestigate,
   investigatedCategories,
+  isEmbedded = false,
 }: EmailViewerProps) {
   const [showInvestigationPanel, setShowInvestigationPanel] = useState(true)
 
@@ -51,36 +53,40 @@ export default function EmailViewer({
   const avatarColor = getAvatarColor(email.from)
 
   return (
-    <div className="flex-1 bg-card border border-border rounded flex flex-col overflow-hidden">
-      {/* Header */}
-      <div className="border-b border-border px-4 py-3 flex items-center justify-between">
-        <div className="flex-1">
-          <h2 className="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-1">
-            EMAIL INVESTIGATION
-          </h2>
-        </div>
-        <div className="flex items-center gap-2">
-          <button className="p-2 hover:bg-secondary rounded transition-colors">
-            <ChevronLeft size={18} className="text-muted-foreground" />
-          </button>
-          <button className="p-2 hover:bg-secondary rounded transition-colors">
-            <ChevronRight size={18} className="text-muted-foreground" />
-          </button>
-          <button className="p-2 hover:bg-secondary rounded transition-colors">
-            <MoreVertical size={18} className="text-muted-foreground" />
-          </button>
-        </div>
-      </div>
+    <div className={`flex-1 bg-card ${!isEmbedded ? 'border border-border rounded' : 'border-l border-border'} flex flex-col overflow-hidden`}>
+      {/* Header - Only show when not embedded */}
+      {!isEmbedded && (
+        <>
+          <div className="border-b border-border px-4 py-3 flex items-center justify-between">
+            <div className="flex-1">
+              <h2 className="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-1">
+                EMAIL INVESTIGATION
+              </h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <button className="p-2 hover:bg-secondary rounded transition-colors">
+                <ChevronLeft size={18} className="text-muted-foreground" />
+              </button>
+              <button className="p-2 hover:bg-secondary rounded transition-colors">
+                <ChevronRight size={18} className="text-muted-foreground" />
+              </button>
+              <button className="p-2 hover:bg-secondary rounded transition-colors">
+                <MoreVertical size={18} className="text-muted-foreground" />
+              </button>
+            </div>
+          </div>
 
-      {/* Tabs */}
-      <div className="border-b border-border bg-secondary px-4 flex gap-4 text-xs font-medium text-muted-foreground">
-        <button className="py-3 border-b-2 border-accent text-accent">
-          INBOX (5)
-        </button>
-        <button className="py-3 border-b-2 border-transparent hover:text-foreground">
-          SENT
-        </button>
-      </div>
+          {/* Tabs */}
+          <div className="border-b border-border bg-secondary px-4 flex gap-4 text-xs font-medium text-muted-foreground">
+            <button className="py-3 border-b-2 border-accent text-accent">
+              INBOX (5)
+            </button>
+            <button className="py-3 border-b-2 border-transparent hover:text-foreground">
+              SENT
+            </button>
+          </div>
+        </>
+      )}
 
       {/* Email Content - No Cards Design */}
       <div className="flex-1 overflow-y-auto">

@@ -24,32 +24,32 @@ export default function EmailInvestigation({
   investigatedCategories,
 }: EmailInvestigationProps) {
   return (
-    <Panel className="flex-1 h-full">
+    <Panel className="flex-1 h-full bg-[#d3cdc1]">
       {/* Header */}
-      <div className="border-b border-border px-4 py-3 flex items-center justify-between">
+      <div className="border-b border-[#c5b8a8] px-4 py-3 flex items-center justify-between bg-[#d3cdc1]">
         <div className="flex-1">
-          <h2 className="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-1">
+          <h2 className="text-xs font-bold tracking-widest text-[#000000] uppercase mb-1">
             EMAIL INVESTIGATION
           </h2>
         </div>
         <div className="flex items-center gap-2">
-          <button className="p-2 hover:bg-secondary rounded transition-colors">
-            <ChevronLeft size={18} className="text-muted-foreground" />
+          <button className="p-2 hover:bg-[#cbc0b5] rounded transition-colors">
+            <ChevronLeft size={18} className="text-[#000000]" />
           </button>
-          <button className="p-2 hover:bg-secondary rounded transition-colors">
-            <ChevronRight size={18} className="text-muted-foreground" />
+          <button className="p-2 hover:bg-[#cbc0b5] rounded transition-colors">
+            <ChevronRight size={18} className="text-[#000000]" />
           </button>
-          <button className="p-2 hover:bg-secondary rounded transition-colors">
-            <MoreVertical size={18} className="text-muted-foreground" />
+          <button className="p-2 hover:bg-[#cbc0b5] rounded transition-colors">
+            <MoreVertical size={18} className="text-[#000000]" />
           </button>
         </div>
       </div>
 
       {/* Content Area - Inbox and Viewer Side by Side */}
-      <div className="flex-1 flex overflow-hidden bg-[#171b1d]">
-        {/* Inbox Section - Card Layer */}
-        <div className="w-80 flex flex-col overflow-hidden bg-[#171b1d] p-3 gap-3">
-          <div className="bg-[#282c2f] rounded border border-[#3a3f42] px-3 py-2 text-xs font-medium text-muted-foreground">
+      <div className="flex-1 flex overflow-hidden bg-[#d3cdc1]">
+        {/* Inbox Section */}
+        <div className="w-80 flex flex-col overflow-hidden bg-[#d3cdc1] border-r border-[#c5b8a8] p-3 gap-3">
+          <div className="bg-[#d3cdc1] rounded border border-[#c5b8a8] px-3 py-2 text-xs font-medium text-[#000000]">
             <span className="uppercase">Inbox ({emails.length})</span>
           </div>
           <div className="flex-1 overflow-y-auto space-y-2">
@@ -88,7 +88,7 @@ export default function EmailInvestigation({
           </div>
         </div>
 
-        {/* Email Viewer Section - Panel Layer */}
+        {/* Email Viewer Section */}
         {currentEmail ? (
           <EmailViewer
             email={currentEmail}

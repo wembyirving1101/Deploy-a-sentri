@@ -156,28 +156,7 @@ export default function EmailViewer({
         </div>
       </div>
 
-      {/* Investigation Buttons */}
-      <div className={`border-t px-4 py-3 ${isEmbedded ? 'bg-[#d3cdc1] border-[#c5b8a8]' : 'bg-secondary border-border'}`}>
-        <p className={`text-xs font-bold uppercase mb-2 ${isEmbedded ? 'text-[#000000] opacity-70' : 'text-muted-foreground'}`}>
-          Investigate
-        </p>
-        <div className="grid grid-cols-3 gap-2">
-          {investigationButtons.map((btn) => (
-            <button
-              key={btn.id}
-              onClick={() => handleInvestigate(btn.id)}
-              disabled={investigatedCategories.has(btn.id)}
-              className={`py-2 px-2 rounded text-xs font-bold transition-colors uppercase border ${
-                investigatedCategories.has(btn.id)
-                  ? 'bg-secondary text-muted-foreground border-border opacity-50 cursor-not-allowed'
-                  : 'bg-accent text-accent-foreground border-accent hover:opacity-90'
-              }`}
-            >
-              {btn.label}
-            </button>
-          ))}
-        </div>
-      </div>
+
     </div>
   )
 }

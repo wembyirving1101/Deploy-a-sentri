@@ -23,7 +23,7 @@ export default function ProgressPanel({ tasksCompleted = 2, tasksTotal = 4 }: Pr
             </div>
             <div className="bg-secondary rounded h-4 overflow-hidden border border-border">
               <div 
-                className="bg-accent h-full transition-all duration-300" 
+                className="bg-success h-full transition-all duration-300" 
                 style={{ width: `${progressPercentage}%` }} 
               />
             </div>

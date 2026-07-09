@@ -42,7 +42,7 @@ export default function TasksPanel({ currentTaskType, onSelectTask }: TasksPanel
               className={`w-full flex items-center gap-2 px-3 py-2 rounded text-sm transition-colors ${
                 task.active
                   ? 'bg-accent text-accent-foreground hover:bg-opacity-90'
-                  : 'bg-secondary text-foreground hover:bg-opacity-75'
+                  : 'bg-secondary text-foreground hover:bg-success hover:text-success-foreground'
               }`}
             >
               <Icon size={16} />

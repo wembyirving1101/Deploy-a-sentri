@@ -33,26 +33,33 @@ export default function InvestigationPanel({
 
       {/* Level 3 Content Area - Beige with margin */}
       <div className="flex-1 flex flex-col overflow-hidden bg-[#d3cdc1] m-3 rounded">
-        {/* Investigation items container */}
-        <div className="flex-1 overflow-y-auto p-3 space-y-2">
-          {investigationList.map((item) => (
-            <label
+        {/* Investigation items container - no gaps */}
+        <div className="flex-1 overflow-y-auto">
+          {investigationList.map((item, index) => (
+            <div
               key={item.id}
-              className="flex items-center gap-3 p-3 bg-[#282c2f] rounded hover:bg-[#323539] cursor-pointer transition-colors"
+              className={`bg-[#d3cdc1] p-4 ${index !== investigationList.length - 1 ? 'border-b border-[#c5b8a8]' : ''}`}
             >
-              <input
-                type="checkbox"
-                checked={item.checked}
-                onChange={() => onCheckboxChange?.(item.id)}
-                className="w-4 h-4 accent-accent cursor-pointer"
-              />
-              <div className="flex-1">
-                <p className="text-sm font-medium text-white">{item.label}</p>
-                {item.hasEvidence && (
-                  <p className="text-xs text-gray-300">Evidence collected</p>
-                )}
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div className="flex items-start gap-3 flex-1">
+                  <input
+                    type="checkbox"
+                    checked={item.checked}
+                    onChange={() => onCheckboxChange?.(item.id)}
+                    className="w-4 h-4 mt-1 cursor-pointer"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-bold text-[#000000]">{item.label}</p>
+                    {item.hasEvidence && (
+                      <p className="text-xs text-[#000000]">Evidence collected</p>
+                    )}
+                  </div>
+                </div>
               </div>
-            </label>
+              <button className="py-1 px-3 rounded font-bold text-xs uppercase tracking-wide transition-colors bg-[#d3cdc1] text-[#000000] border border-[#a89a8a] hover:bg-[#cbc0b5]">
+                Check
+              </button>
+            </div>
           ))}
         </div>
 
@@ -61,7 +68,7 @@ export default function InvestigationPanel({
           <div className="border-t border-[#c5b8a8] px-3 py-3">
             <button
               onClick={onVerify}
-              className="w-full py-2 px-3 rounded font-bold text-xs uppercase tracking-wide transition-colors bg-[#d3cdc1] text-[#000000] border border-[#c5b8a8] hover:bg-[#cbc0b5] mb-3"
+              className="w-full py-2 px-3 rounded font-bold text-xs uppercase tracking-wide transition-colors bg-[#c1b5a8] text-[#000000] hover:bg-[#b5a89a]"
             >
               Contact People
             </button>

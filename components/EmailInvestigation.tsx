@@ -48,7 +48,7 @@ export default function EmailInvestigation({
                   className={`w-full text-left px-3 py-3 rounded border transition-colors ${
                     isSelected
                       ? 'bg-success text-success-foreground border-success'
-                      : 'bg-[#d3cdc1] text-[#000000] border-[#c5b8a8] hover:bg-[#cbc0b5]'
+                      : 'bg-[#d3cdc1] text-[#000000] border-[#c5b8a8] hover:bg-[#cbc0b5] hover:text-[#000000]'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2">

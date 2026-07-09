@@ -17,16 +17,16 @@ export default function InvestigationPanel({
   const checkedCount = investigationList.filter((item) => item.checked).length
 
   return (
-    <div className="w-80 bg-[#171b1d] border border-[#3a3f42] rounded flex flex-col overflow-hidden">
+    <div className="w-80 h-full bg-[#171b1d] border border-[#3a3f42] rounded flex flex-col overflow-hidden">
       {/* Level 2 Header - Dark and Sticky */}
-      <div className="sticky top-0 bg-[#171b1d] border-b border-[#3a3f42] px-4 py-3 flex items-center justify-between z-10">
-        <div className="flex items-center gap-2">
-          <AlertTriangle size={16} className="text-destructive" />
-          <h2 className="text-xs font-bold tracking-widest text-muted-foreground uppercase">
+      <div className="sticky top-0 bg-[#171b1d] border-b border-[#3a3f42] px-4 py-5 flex items-center justify-between z-10">
+        <div className="flex items-center gap-3">
+          <AlertTriangle size={20} className="text-destructive flex-shrink-0" />
+          <h2 className="text-sm font-bold tracking-widest text-muted-foreground uppercase">
             INVESTIGATION LIST
           </h2>
         </div>
-        <p className="text-xs text-muted-foreground font-bold">
+        <p className="text-sm text-muted-foreground font-bold">
           {checkedCount}/{investigationList.length}
         </p>
       </div>

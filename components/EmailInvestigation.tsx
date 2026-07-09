@@ -1,5 +1,6 @@
 'use client'
 
+import { Mail } from 'lucide-react'
 import EmailInbox from './EmailInbox'
 import EmailViewer from './EmailViewer'
 import { Email } from '@/lib/types'
@@ -24,8 +25,9 @@ export default function EmailInvestigation({
   return (
     <div className="flex-1 h-full bg-[#171b1d] border border-[#3a3f42] rounded flex flex-col overflow-hidden">
       {/* Level 2 Header - Dark and Sticky */}
-      <div className="sticky top-0 bg-[#171b1d] border-b border-[#3a3f42] px-4 py-3 z-10">
-        <h2 className="text-xs font-bold tracking-widest text-muted-foreground uppercase">
+      <div className="sticky top-0 bg-[#171b1d] border-b border-[#3a3f42] px-4 py-5 z-10 flex items-center gap-3">
+        <Mail size={24} className="text-muted-foreground flex-shrink-0" />
+        <h2 className="text-sm font-bold tracking-widest text-muted-foreground uppercase">
           EMAIL INVESTIGATION
         </h2>
       </div>

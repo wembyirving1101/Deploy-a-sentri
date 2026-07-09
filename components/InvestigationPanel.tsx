@@ -38,27 +38,25 @@ export default function InvestigationPanel({
           {investigationList.map((item, index) => (
             <div
               key={item.id}
-              className={`bg-[#d3cdc1] p-4 ${index !== investigationList.length - 1 ? 'border-b border-[#c5b8a8]' : ''}`}
+              className={`bg-[#d3cdc1] p-4 flex items-start justify-between gap-3 ${index !== investigationList.length - 1 ? 'border-b-2 border-[#c5b8a8]' : ''}`}
             >
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <div className="flex items-start gap-3 flex-1">
-                  <input
-                    type="checkbox"
-                    checked={item.checked}
-                    onChange={() => onCheckboxChange?.(item.id)}
-                    className="w-4 h-4 mt-1 cursor-pointer"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-bold text-[#000000]">{item.label}</p>
-                    {item.hasEvidence && (
-                      <p className="text-xs text-[#000000]">Evidence collected</p>
-                    )}
-                  </div>
-                </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-bold text-[#000000]">{item.label}</p>
+                {item.hasEvidence && (
+                  <p className="text-xs text-[#000000]">Evidence collected</p>
+                )}
+                <button className="mt-2 py-1 px-3 rounded font-bold text-xs uppercase tracking-wide transition-colors bg-[#d3cdc1] text-[#000000] border border-[#a89a8a] hover:bg-[#cbc0b5]">
+                  Check
+                </button>
               </div>
-              <button className="py-1 px-3 rounded font-bold text-xs uppercase tracking-wide transition-colors bg-[#d3cdc1] text-[#000000] border border-[#a89a8a] hover:bg-[#cbc0b5]">
-                Check
-              </button>
+              <div className="flex-shrink-0">
+                <input
+                  type="checkbox"
+                  checked={item.checked}
+                  onChange={() => onCheckboxChange?.(item.id)}
+                  className="w-5 h-5 cursor-pointer bg-[#c1b5a8] border-2 border-[#a89a8a]"
+                />
+              </div>
             </div>
           ))}
         </div>

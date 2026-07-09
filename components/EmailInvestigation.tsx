@@ -31,7 +31,7 @@ export default function EmailInvestigation({
       </div>
 
       {/* Level 3 Content Area - Beige with padding to show Level 1 border */}
-      <div className="flex-1 flex overflow-hidden bg-[#d3cdc1] m-3 rounded">
+      <div className="flex-1 flex overflow-hidden bg-[#d3cdc1] m-1 rounded">
         {/* Inbox Section */}
         <div className="w-80 flex flex-col overflow-hidden bg-[#d3cdc1] border-r border-[#c5b8a8] p-3 gap-3">
           <div className="bg-[#d3cdc1] rounded border border-[#c5b8a8] px-3 py-2 text-xs font-medium text-[#000000]">

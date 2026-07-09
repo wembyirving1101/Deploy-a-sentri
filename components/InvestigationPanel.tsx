@@ -32,7 +32,7 @@ export default function InvestigationPanel({
       </div>
 
       {/* Level 3 Content Area - Beige with margin */}
-      <div className="flex-1 flex flex-col overflow-hidden bg-[#d3cdc1] m-3 rounded">
+      <div className="flex-1 flex flex-col overflow-hidden bg-[#d3cdc1] m-1 rounded">
         {/* Investigation items container - no gaps */}
         <div className="flex-1 overflow-y-auto">
           {investigationList.map((item, index) => {
